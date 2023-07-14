@@ -1,5 +1,18 @@
-import { updateGrid } from "./update-grid";
+import { updateSnake, setDirection } from "./snake";
 
-const UPDATE_INTERVAL = 50; // Update every 200ms (5 times/sec)
+const UPDATE_INTERVAL = 500; // Update every 200ms (5 times/sec)
 
-setInterval(updateGrid, UPDATE_INTERVAL);
+setInterval(updateSnake, UPDATE_INTERVAL);
+
+// add eventlistener for keypress to change direction
+document.addEventListener("keydown", (event) => {
+  if (event.key === "ArrowUp") {
+    setDirection(1);
+  } else if (event.key === "ArrowDown") {
+    setDirection(3);
+  } else if (event.key === "ArrowLeft") {
+    setDirection(2);
+  } else if (event.key === "ArrowRight") {
+    setDirection(0);
+  }
+});

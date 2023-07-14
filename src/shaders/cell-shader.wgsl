@@ -14,7 +14,10 @@
         let i = f32(instance);
         let cell = vec2f(i % grid.x, floor(i / grid.x));
 
-        let scale = f32(cellState[instance]);
+        var scale = 0.0;
+        if (cellState[instance] > 0) {
+          scale = 1.0;
+        }
         let cellOffset = cell / grid * 2;
         let gridPos = (position*scale+1) / grid - 1 + cellOffset;
 
